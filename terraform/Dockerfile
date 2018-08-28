@@ -16,6 +16,9 @@ RUN git clone https://github.com/hashicorp/terraform.git ./ && \
 
 # This results in a single layer image
 FROM scratch
+# Terraform wants a logfil or it will panic
+RUN touch /tmp/terraform-log
+# Copy the binary from the build image
 COPY --from=build /go/bin/terraform /bin/
 
 ENTRYPOINT ["/bin/terraform"]
