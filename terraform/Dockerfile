@@ -16,7 +16,7 @@ RUN git clone https://github.com/hashicorp/terraform.git ./ && \
 
 # This results in a single layer image
 FROM scratch
-COPY --from=build $GOPATH/bin/terraform bin/
+COPY --from=build $GOPATH/bin/terraform /
 
-ENTRYPOINT ["bin/terraform"]
+ENTRYPOINT ["terraform"]
 CMD ["--help"]
