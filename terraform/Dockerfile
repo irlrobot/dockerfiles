@@ -16,6 +16,9 @@ RUN git clone https://github.com/hashicorp/terraform.git ./ && \
 
 # This results in a single layer image
 FROM alpine:latest
+# Need certs for installing tf plugins
+RUN apk add ca-certificates
+
 # Copy only the binary from the build image
 COPY --from=build /go/bin/terraform /bin/terraform
 
