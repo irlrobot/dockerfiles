@@ -18,5 +18,5 @@ RUN git clone https://github.com/hashicorp/terraform.git ./ && \
 FROM scratch
 COPY --from=build /go/bin/terraform /bin/
 
-ENTRYPOINT ["terraform"]
+ENTRYPOINT ["/bin/terraform"]
 CMD ["--help"]
