@@ -18,7 +18,5 @@ RUN git clone https://github.com/hashicorp/terraform.git ./ && \
 FROM scratch
 # Copy the binary from the build image
 COPY --from=build /go/bin/terraform /bin/
-# Copy logfile from the build image
-COPY --from=build /tmp/terraform-log /tmp/terraform-log
 
 ENTRYPOINT ["/bin/terraform"]
