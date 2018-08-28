@@ -15,8 +15,8 @@ RUN git clone https://github.com/hashicorp/terraform.git ./ && \
     /bin/bash scripts/build.sh
 
 # This results in a single layer image
-FROM scratch
-# Copy the binary from the build image
-COPY --from=build /go/bin/terraform /bin/
+FROM alpine:latest
+# Copy only the binary from the build image
+COPY --from=build /go/bin/terraform /bin/terraform
 
 ENTRYPOINT ["/bin/terraform"]
