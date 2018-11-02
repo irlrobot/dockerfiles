@@ -1,0 +1,16 @@
+version: "3"
+services:
+  ansible:
+    image: irlrobot/ansible
+    stdin_open: true
+    tty: true
+    volumes:
+      - ${PWD}/hosts:/etc/ansible/hosts
+      - ${PWD}/ansible.cfg:/etc/ansible/ansible.cfg
+      - ${HOME}/.ssh:/root/.ssh:ro
+    working_dir: /ansible
+  novolsansible:
+    image: irlrobot/ansible
+    stdin_open: true
+    tty: true
+    working_dir: /ansible
