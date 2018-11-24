@@ -1,0 +1,1 @@
+# AWS Lambda Docker Image with Python 3.6
