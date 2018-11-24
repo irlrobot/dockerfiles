@@ -1,7 +1,5 @@
 FROM amazonlinux:2017.03.1.20170812
 
-
-
 RUN yum install zip wget gcc zlib-devel libffi-devel openssl-devel bzip2-devel -y
 
 RUN cd /tmp && \
