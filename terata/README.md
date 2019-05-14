@@ -1,0 +1,1 @@
+docker run -v C:\Users\jcampbell\Desktop\test.tf:/test.tf -v C:\Users\jcampbell\repos\dockerfiles\terata\hacked_okta_auth.py:/usr/local/lib/python3.6/dist-packages/oktaawscli/okta_auth.py -it --rm terata
