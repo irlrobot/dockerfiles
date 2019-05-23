@@ -22,3 +22,5 @@ ENV LANG=C.UTF-8
 # Clean up and reduce image size
 RUN apt-get clean
 RUN apt-get autoremove
+
+WORKDIR /terraform
