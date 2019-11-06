@@ -68,7 +68,8 @@ RUN echo "    \"clientId\": \"${clientid}\"," >> ${installtoolsdir}/config.json
 RUN echo "    \"productId\": \"${productid}\"" >> ${installtoolsdir}/config.json
 RUN echo "  }" >> ${installtoolsdir}/config.json
 RUN echo "}" >> ${installtoolsdir}/config.json
+
 RUN cd ${installtoolsdir} && \
     bash genConfig.sh config.json ${serialnumber} ${sdkbasedir}/db \
     ${sdkbasedir}/sdk-source/avs-device-sdk \
-    ${sdkbasedir}/sdk-build/avs-device-sdk/Integration/AlexaClientSDKConfig.json
+    ${sdkbasedir}/sdk-build/Integration/AlexaClientSDKConfig.json
