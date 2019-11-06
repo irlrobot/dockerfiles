@@ -20,7 +20,7 @@ RUN apt-get -y install \
     git gcc cmake build-essential libsqlite3-dev libcurl4-openssl-dev libfaad-dev \
     libsoup2.4-dev libgcrypt20-dev libgstreamer-plugins-bad1.0-dev \
     gstreamer1.0-plugins-good libasound2-dev doxygen \
-    python python-pip openssl
+    python python-pip libssl-dev
 
 # Install PortAudio
 RUN cd ${sdkbasedir}/third-party && \
@@ -52,3 +52,18 @@ RUN cd ${sdkbasedir}/sdk-build && \
     -DPORTAUDIO=ON \
     -DPORTAUDIO_LIB_PATH=${sdkbasedir}/third-party/portaudio/lib/.libs/libportaudio.a \
     -DPORTAUDIO_INCLUDE_DIR=${sdkbasedir}/third-party/portaudio/include
+
+RUN cd ${sdkbasedir}/sdk-build && make SampleApp -j2
+
+# Configuration file setup
+ARG installtoolsdir="${sdkbasedir}/sdk-source/avs-device-sdk/tools/Install"
+ARG clientid
+ARG productid
+ARG serialnumber
+
+RUN echo "\"clientId\": \"${clientid}\"" > ${installtoolsdir}/config.json
+RUN echo "\"productId\": \"${productid}\"" >> ${installtoolsdir}/config.json
+RUN cd ${installtoolsdir} && \
+    bash genConfig.sh config.json ${serialnumber} ${sdkbasedir}/db \
+    ${sdkbasedir}/sdk-source/avs-device-sdk \
+    ${sdkbasedir}/sdk-build/avs-device-sdk/Integration/AlexaClientSDKConfig.json
