@@ -60,7 +60,7 @@ RUN cd ${sdkbasedir}/sdk-build && make SampleApp -j${numbuildjobs}
 ARG installtoolsdir="${sdkbasedir}/sdk-source/avs-device-sdk/tools/Install"
 ARG clientid
 ARG productid
-ARG serialnumber
+ARG serialnumber=123456
 
 RUN echo "\"clientId\": \"${clientid}\"" > ${installtoolsdir}/config.json
 RUN echo "\"productId\": \"${productid}\"" >> ${installtoolsdir}/config.json
