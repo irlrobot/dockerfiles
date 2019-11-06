@@ -232,10 +232,10 @@ Please enroll an MFA factor in the Okta Web UI first!""")
             headers=headers).json()
         aws_apps = []
         for app in resp:
-            # Hacked for ZG Okta apps
+            # Hack to allow for more than one appName pattern
             if app['appName'] == "amazon_aws" or \
-                    app['appName'] == "zillowgroupinc_zillowdevelopment_1" or \
-                    app['appName'] == "zillowgroupinc_zillowdev_1":
+                    app['appName'] == "another_pattern" or \
+                    app['appName'] == "and_another_pattern":
 
                 aws_apps.append(app)
         if not aws_apps:
