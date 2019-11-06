@@ -73,3 +73,5 @@ RUN cd ${installtoolsdir} && \
     bash genConfig.sh config.json ${serialnumber} ${sdkbasedir}/db \
     ${sdkbasedir}/sdk-source/avs-device-sdk \
     ${sdkbasedir}/sdk-build/Integration/AlexaClientSDKConfig.json
+
+CMD ["/bin/bash"]
