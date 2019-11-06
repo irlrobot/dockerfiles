@@ -74,4 +74,4 @@ RUN cd ${installtoolsdir} && \
     ${sdkbasedir}/sdk-source/avs-device-sdk \
     ${sdkbasedir}/sdk-build/Integration/AlexaClientSDKConfig.json
 
-CMD ["/bin/bash"]
+ENTRYPOINT [ "/bin/bash" ]
