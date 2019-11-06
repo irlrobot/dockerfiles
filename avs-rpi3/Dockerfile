@@ -53,7 +53,8 @@ RUN cd ${sdkbasedir}/sdk-build && \
     -DPORTAUDIO_LIB_PATH=${sdkbasedir}/third-party/portaudio/lib/.libs/libportaudio.a \
     -DPORTAUDIO_INCLUDE_DIR=${sdkbasedir}/third-party/portaudio/include
 
-RUN cd ${sdkbasedir}/sdk-build && make SampleApp -j2
+ARG numbuildjobs=1
+RUN cd ${sdkbasedir}/sdk-build && make SampleApp -j${numbuildjobs}
 
 # Configuration file setup
 ARG installtoolsdir="${sdkbasedir}/sdk-source/avs-device-sdk/tools/Install"
