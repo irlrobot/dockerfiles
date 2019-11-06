@@ -5,7 +5,7 @@ Terrata is a Docker container for running awscli and Terraform commands. It inte
 To build the image, you must set the "oktabaseurl" argument which is your Okta base URL (e.g. company.okta.com). You can optionally set the "tfver" argument which is the version of Terraform you want to use. If you don't specify "tfver" a default version will be used.
 ```
 docker build --build-arg oktabaseurl=your_okta_url \
-    --build-arg tfver=0.12.13
+    --build-arg tfver=0.12.13 \
     -t terrata \
     .
 ```
