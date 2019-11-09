@@ -1,3 +1,5 @@
+# WIP Not yet functional
+
 # Building avs-device-sdk binaries for the Raspberry Pi 3
 Tested using a Pi 3 B+
 
