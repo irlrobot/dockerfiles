@@ -76,6 +76,7 @@ RUN cd ${installtoolsdir} && \
 
 # TODO add these above
 RUN apt-get install -y vim sox
+# TODO optimize this without needing another dependency
 RUN ex -s -c "2i|   \"gstreamerMediaPlayer\":{\"audioSink\":\"alsasink\"}," -c x ${sdkbasedir}/sdk-build/Integration/AlexaClientSDKConfig.json
 COPY .asoundrc /home/pi/.asoundrc
 
