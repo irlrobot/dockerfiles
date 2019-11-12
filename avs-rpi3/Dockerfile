@@ -74,4 +74,9 @@ RUN cd ${installtoolsdir} && \
     ${sdkbasedir}/sdk-source/avs-device-sdk \
     ${sdkbasedir}/sdk-build/Integration/AlexaClientSDKConfig.json
 
+# TODO add these above
+RUN apt-get install -y vim sox
+RUN ex -s -c "2i|   \"gstreamerMediaPlayer\":{\"audioSink\":\"alsasink\"}," -c x ${sdkbasedir}/sdk-build/Integration/AlexaClientSDKConfig.json
+COPY .asoundrc /home/pi/.asoundrc
+
 ENTRYPOINT [ "/bin/bash" ]
